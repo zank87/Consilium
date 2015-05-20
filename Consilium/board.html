@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+	<title>Consilium</title>
+
+	<!-- CSS  -->
+	<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+	<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="white" role="navigation">
+	<div class="nav-wrapper container">
+
+		<!-- Left Nav Items -->
+		<ul class="left hide-on-med-and-down">
+			<li><a href="#" class="dropdown-button" data-activates='settings'>Username<i class="mdi-social-person left"></i></a></li>
+			<li><a href="#" class="">Boards<i class="mdi-image-filter-none left"></i></a></li>
+		</ul>
+
+
+		<a id="logo-container" href="#" class="brand-logo teal-text text-lighten-1 center">Consilium</a>
+
+
+		<!-- Right Nav Items -->
+		<ul class="right hide-on-med-and-down text-black black-text">
+			<li><a href="#" class="nav-text dropdown-button" data-activates="add"><i class="mdi-content-add-circle-outline"></i></a></li>
+			<li><a href="#" class="nav-text"><i class="mdi-social-notifications"></i></a></li>
+		</ul>
+
+
+		<!-- Mobile Nav -->
+		<ul id="nav-mobile" class="side-nav center-align" data-collapsible="expandable">
+			<li class="no-padding">
+				<ul class="collapsible collapsible-accordian">
+					<li class="bold teal"><a class="collapsible-header active waves-effect waves-teal white-text">Username</a>
+						<div class="collapsible-body">
+							<ul>
+								<li><a href="#!">User Settings</a></li>
+								<li><a href="#!">Board Settings</a></li>
+								<li><a href="#!">Group Settings</a></li>
+								<li class="divider"></li>
+								<li><a href="#!">Log Out</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="bold teal"><a href="#" class="active waves-effect waves-teal white-text">Boards</a></li>
+					<li class="bold teal"><a class="collapsible-header active waves-effect waves-teal white-text">Create</a>
+						<div class="collapsible-body">
+							<ul>
+								<li><a href="#!">Create Tasks</a></li>
+								<li><a href="#!">Create Board</a></li>
+								<li><a href="#!">Create Group</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="bold teal"><a href="#" class="active waves-effect waves-teal white-text">Notifications</a></li>
+				</ul>
+			</li>
+		</ul>
+
+		<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+	</div>
+</nav><br>
+
+<!-- Dropdown Content -->
+<ul id="settings" class="dropdown-content">
+	<li><a href="#!">User Settings</a></li>
+	<li><a href="#!">Board Settings</a></li>
+	<li><a href="#!">Group Settings</a></li>
+	<li class="divider"></li>
+	<li><a href="#!">Log Out</a></li>
+</ul>
+
+<ul id="add" class="dropdown-content">
+	<li><a href="#!">Create Tasks</a></li>
+	<li><a href="#!">Create Board</a></li>
+	<li><a href="#!">Create Group</a></li>
+</ul>
+
+
+<!-- Board -->
+<div>
+	<div class="row">
+
+		<div class="col s3 m3">
+			<div class="card teal lighten-1 z-depth-3 center-align board">
+				<div class="card-content white-text">
+					<span class="card-title">Design</span>
+					<p></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s3 m3">
+			<div class="card teal lighten-1 z-depth-3 center-align board">
+				<div class="card-content white-text">
+					<span class="card-title">Development</span>
+					<p></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s3 m3">
+			<div class="card teal lighten-1 z-depth-3 center-align board">
+				<div class="card-content white-text">
+					<span class="card-title">Testing</span>
+					<p></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col s3 m3">
+			<div class="card teal lighten-1 z-depth-3 center-align board">
+				<div class="card-content white-text">
+					<span class="card-title">Deployment</span>
+					<p></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+<script>
+	$('a[href*=#]:not([href=#])').click(function () {
+		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+				|| location.hostname == this.hostname) {
+
+			var target = $(this.hash);
+			target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+			if (target.length) {
+				$('html,body').animate({
+					scrollTop: target.offset().top
+				}, 1000);
+				return false;
+			}
+		}
+	});
+</script>
+</body>
+</html>
