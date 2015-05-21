@@ -6,6 +6,7 @@
  * Made By MaterializeCSS.com
  */
 
+
 nav ul a,
 nav .brand-logo {
   color: #444;
@@ -33,6 +34,10 @@ p {
 .jumbo-container .section {
     width: 100%;
   }
+
+.board-div {
+    padding-top: 30px;
+}
 
 .board {
     height: 30vh;

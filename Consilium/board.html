@@ -64,7 +64,7 @@
 
 		<a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 	</div>
-</nav><br>
+</nav>
 
 <!-- Dropdown Content -->
 <ul id="settings" class="dropdown-content">
@@ -81,43 +81,99 @@
 	<li><a href="#!">Create Group</a></li>
 </ul>
 
+<!-- Create Task Modal -->
+<div id="create-task" class="modal">
+	<div class="modal-content">
+		<h4 class="teal-text text-lighten-1">Create Task</h4>
+
+		<div class="row">
+			<form class="col s12">
+				<div class="row">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="task_name" type="text" class="validate">
+							<label for="task_name">Task Name</label>
+						</div>
+					</div>
+					<div class="input-field col s12">
+						<textarea id="task_desc" class="materialize-textarea"></textarea>
+						<label for="task_desc">Task Description</label>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<a href="#!" class=" modal-action modal-close teal lighten-1 white-text waves-effect waves-green btn-flat">Create Task</a>
+	</div>
+</div>
+<!-- End Modal -->
+
+<!-- Create Board Modal -->
+<div id="create_board" class="modal">
+	<div class="modal-content">
+		<h4 class="teal-text text-lighten-1">Create Board</h4>
+
+		<div class="row">
+			<form class="col s12">
+				<div class="row">
+					<div class="row">
+						<div class="input-field col s12">
+							<input id="board_name" type="text" class="validate">
+							<label for="board_name">Board Name</label>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
+	<div class="modal-footer">
+		<button onclick="createBoard()" class=" modal-action modal-close teal lighten-1 white-text waves-effect waves-green btn-flat">Create Board</button>
+	</div>
+</div>
+<!-- End Modal -->
 
 <!-- Board -->
-<div>
-	<div class="row">
+<div class="board-div">
+	<div class="row" id="task_board">
 
+		<!-- Individual Boards -->
 		<div class="col s3 m3">
 			<div class="card teal lighten-1 z-depth-3 center-align board">
 				<div class="card-content white-text">
 					<span class="card-title">Design</span>
 					<p></p>
+
+
+					<div class="row" id="">
+
+						<!-- Individual Tasks -->
+						<div class="col s12 m12">
+							<div class="card light-blue lighten-1 z-depth-1 center-align">
+								<div class="card-content white-text">
+									<span class="card-title">Create Task</span>
+									<div>
+										<a href="#create-task" class="btn-floating waves-effect waves-light modal-trigger mdi-content-add"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
 				</div>
 			</div>
 		</div>
 
-		<div class="col s3 m3">
-			<div class="card teal lighten-1 z-depth-3 center-align board">
+		<div class="col s3 m3" id="create_board_div">
+			<div class="card light-blue lighten-1 z-depth-1 center-align">
 				<div class="card-content white-text">
-					<span class="card-title">Development</span>
-					<p></p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col s3 m3">
-			<div class="card teal lighten-1 z-depth-3 center-align board">
-				<div class="card-content white-text">
-					<span class="card-title">Testing</span>
-					<p></p>
-				</div>
-			</div>
-		</div>
-
-		<div class="col s3 m3">
-			<div class="card teal lighten-1 z-depth-3 center-align board">
-				<div class="card-content white-text">
-					<span class="card-title">Deployment</span>
-					<p></p>
+					<span class="card-title">Create Board</span>
+					<div>
+						<a href="#create_board" class="btn-floating waves-effect waves-light modal-trigger mdi-content-add"></a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -130,6 +186,7 @@
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
+<script src="js/app.js"></script>
 <script>
 	$('a[href*=#]:not([href=#])').click(function () {
 		if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
