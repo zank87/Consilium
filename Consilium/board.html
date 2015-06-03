@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="consilium">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
@@ -99,30 +99,12 @@
 						<textarea id="task_desc" class="materialize-textarea"></textarea>
 						<label for="task_desc">Task Description</label>
 					</div>
-				</div>
-			</form>
-		</div>
-
-	</div>
-	<div class="modal-footer">
-		<a href="#!" class=" modal-action modal-close teal lighten-1 white-text waves-effect waves-green btn-flat">Create Task</a>
-	</div>
-</div>
-<!-- End Modal -->
-
-<!-- Create Board Modal -->
-<div id="create_board" class="modal">
-	<div class="modal-content">
-		<h4 class="teal-text text-lighten-1">Create Board</h4>
-
-		<div class="row">
-			<form class="col s12">
-				<div class="row">
-					<div class="row">
-						<div class="input-field col s12">
-							<input id="board_name" type="text" class="validate">
-							<label for="board_name">Board Name</label>
-						</div>
+					<div class="input-field col s12">
+						<select>
+							<option value="" disabled selected>Choose your board</option>
+							<option value="1"></option>
+							<option value="2"></option>
+						</select>
 					</div>
 				</div>
 			</form>
@@ -130,53 +112,60 @@
 
 	</div>
 	<div class="modal-footer">
-		<button onclick="createBoard()" class=" modal-action modal-close teal lighten-1 white-text waves-effect waves-green btn-flat">Create Board</button>
+		<button onclick="console.log(board.id)" class=" modal-action modal-close teal lighten-1 white-text waves-effect waves-green btn-flat">Create Task</button>
 	</div>
 </div>
 <!-- End Modal -->
 
+
 <!-- Board -->
-<div class="board-div">
+<div class="board-div" ng-controller="BoardController">
 	<div class="row" id="task_board">
 
 		<!-- Individual Boards -->
-		<div class="col s3 m3">
+
+		<div class="col s3 m3" ng-repeat="board in boards[0]">
 			<div class="card teal lighten-1 z-depth-3 center-align board">
-				<div class="card-content white-text">
-					<span class="card-title">Design</span>
-					<p></p>
+				<div class="card-content white-text" >
+					<span class="card-title">{{board.title}}</span>
 
+					<div class="col s12 m12" ng-repeat="task in board.tasks">
+						<div class="card light-blue lighten-1 z-depth-1 center-align">
+							<div class="card-content white-text">
+								<h5>{{task.taskTitle}}</h5>
 
-					<div class="row" id="">
-
-						<!-- Individual Tasks -->
-						<div class="col s12 m12">
-							<div class="card light-blue lighten-1 z-depth-1 center-align">
-								<div class="card-content white-text">
-									<span class="card-title">Create Task</span>
-									<div>
-										<a href="#create-task" class="btn-floating waves-effect waves-light modal-trigger mdi-content-add"></a>
-									</div>
-								</div>
+								<p>{{task.taskDesc}}</p>
 							</div>
 						</div>
-
 					</div>
 
+
+					<div>
+						<span>Add a Task</span>
+						<label class="input-field">
+							<input type="text" placeholder="Task Title" class="white-text validate" ng-model="task.taskTitle">
+							<input type="text" placeholder="Task Description" class="white-text validate" ng-model="task.taskDesc">
+							<button type="submit" ng-click="addTask(board.title, task);" class="teal lighten-1 white-text waves-effect waves-green btn-flat">Submit</button>
+						</label>
+					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="col s3 m3" id="create_board_div">
+		<div class="col s3 m3" ng-hide="boards.length >= 4">
 			<div class="card light-blue lighten-1 z-depth-1 center-align">
 				<div class="card-content white-text">
 					<span class="card-title">Create Board</span>
 					<div>
-						<a href="#create_board" class="btn-floating waves-effect waves-light modal-trigger mdi-content-add"></a>
+						<label class="input-field">
+							<input type="text" placeholder="Board Title" class="white-text validate" ng-model="boardTitle">
+							<button type="submit" ng-click="addBoard();" class="teal lighten-1 white-text waves-effect waves-green btn-flat">Submit</button>
+						</label>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 </div>
 
@@ -184,6 +173,7 @@
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
 <script src="js/app.js"></script>
